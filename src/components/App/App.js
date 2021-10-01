@@ -1,21 +1,27 @@
 import './App.scss';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Header from '../Header/Header';
+import Home from '../../Pages/Home/Home';
+import Movies from '../../Pages/Movies/Movies';
+import TVShows from '../../Pages/TVShows/TVShows';
+import PageNotFound from '../../Pages/PageNotFound/PageNotFound';
+import MovieDetail from '../../Pages/MovieDetail/MovieDetail';
+import TVShowDetail from '../../Pages/TVShowDetail/TVShowDetail';
 
 function App() {
     return (
-        <div className="App">
-            <header className="App-header">
-                <p>
-          Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-          Learn React
-                </a>
-            </header>
+        <div className="app">
+            <Router>
+                <Header></Header>
+                <Switch>
+                    <Route path="/" component={Home} />
+                    <Route path="/movies" component={Movies} />
+                    <Route path="/movie/:imdbID" component={MovieDetail} />
+                    <Route path="/tvshow/:imdbID" component={TVShowDetail} />
+                    <Route path="/series" component={TVShows} />
+                    <Route component={PageNotFound} path />
+                </Switch>
+            </Router>
         </div>
     );
 }
