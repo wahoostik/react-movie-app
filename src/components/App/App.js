@@ -14,11 +14,11 @@ function App() {
             <Router>
                 <Header></Header>
                 <Switch>
-                    <Route path="/" component={Home} />
+                    <Route path="/" exact component={Home} />
                     <Route path="/movies" component={Movies} />
                     <Route path="/movie/:imdbID" component={MovieDetail} />
                     <Route path="/tvshow/:imdbID" component={TVShowDetail} />
-                    <Route path="/series" component={TVShows} />
+                    <Route path="/tvshows" component={TVShows} />
                     <Route component={PageNotFound} path />
                 </Switch>
             </Router>
