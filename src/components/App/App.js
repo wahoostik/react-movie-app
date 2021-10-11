@@ -12,15 +12,17 @@ function App() {
     return (
         <div className="app">
             <Router>
-                <Header></Header>
-                <Switch>
-                    <Route path="/" exact component={Home} />
-                    <Route path="/movies" component={Movies} />
-                    <Route path="/movie/:imdbID" component={MovieDetail} />
-                    <Route path="/tvshow/:imdbID" component={TVShowDetail} />
-                    <Route path="/tvshows" component={TVShows} />
-                    <Route component={PageNotFound} path />
-                </Switch>
+                <Header />
+                <div className="container">
+                    <Switch>
+                        <Route path="/" exact component={Home} />
+                        <Route path="/movies" component={Movies} />
+                        <Route path="/movie/:imdbID" component={MovieDetail} />
+                        <Route path="/tvshow/:imdbID" component={TVShowDetail} />
+                        <Route path="/tvshows" component={TVShows} />
+                        <Route component={PageNotFound} path />
+                    </Switch>
+                </div>
             </Router>
         </div>
     );

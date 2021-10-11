@@ -1,40 +1,42 @@
 // == Import
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Button } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import './Header.scss';
+import Sidebar from '../Sidebar/Sidebar';
 
 // == Composant
 const Header = () => (
     <div className='header'>
-        <Link to='/'>
+        <Sidebar />
+        <NavLink to='/'>
             <Button
                 className='Button'
                 variant="contained"
                 color='primary'
                 size='small'>
                 AMDb</Button>
-        </Link>
+        </NavLink>
         <nav className='menu'>
-            <Link
+            <NavLink
                 to='/'
                 className='menu-link'>
                 Home
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
                 to='/movies'
                 className='menu-link'>
                 Movies
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
                 to='/tvshows'
                 className='menu-link'>
                 TV Shows
-            </Link>
+            </NavLink>
         </nav>
         <form className='search'>
             <input type="text" placeholder="Search" />
-            <button type='submit' className='search-icon'><SearchIcon /></button>
+            <button type='submit' className='search-icon'><SearchIcon/></button>
         </form>
     </div>
 );
