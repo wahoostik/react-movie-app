@@ -1,64 +1,64 @@
-import { MdLocalMovies } from 'react-icons/md';
-import { RiSlideshow3Fill, RiArrowDownSFill, RiArrowUpSFill } from 'react-icons/ri';
-import { BsPersonFill } from 'react-icons/bs';
+import * as MdIcons from 'react-icons/md';
+import * as RiIcons from 'react-icons/ri';
+import * as BsIcons from 'react-icons/bs';
 
 export const SidebarData = [
     {
         title: 'Movies',
-        path: '/movies',
-        icon: MdLocalMovies,
-        iconCLosed: RiArrowDownSFill,
-        iconOpened: RiArrowUpSFill,
+        path: '#',
+        icon: <MdIcons.MdLocalMovies />,
+        iconClosed: <RiIcons.RiArrowDownSFill />,
+        iconOpened: <RiIcons.RiArrowUpSFill />,
         subNav: [
             {
-                title: 'Top Rated Movies',
-                path: '/',
+                subTitle: 'Top Rated Movies',
+                subPath: '/top-rated-movies',
             },
             {
-                title: 'Most Popular Movies',
-                path: '/',
+                subTitle: 'Most Popular Movies',
+                subPath: '/most-popular-movies',
             },
             {
-                title: 'Coming Soon',
-                path: '/',
+                subTitle: 'Coming Soon',
+                subPath: '/coming-soon',
             },
             {
-                title: 'Best Picture Winners',
-                path: '/',
+                subTitle: 'Best Picture Winners',
+                subPath: '/best-pictur-ewinners',
             }
         ]
     },
     {
         title: 'TV Shows',
-        path: '/tvshows',
-        icon: RiSlideshow3Fill,
-        iconCLosed: RiArrowDownSFill,
-        iconOpened: RiArrowUpSFill,
+        path: '#',
+        icon: <RiIcons.RiSlideshow3Fill />,
+        iconClosed: <RiIcons.RiArrowDownSFill />,
+        iconOpened: <RiIcons.RiArrowUpSFill />,
         subNav: [
             {
-                title: 'Top Rated Shows',
-                path: '/',
+                subTitle: 'Top Rated Shows',
+                subPath: '/top-rated-shows',
             },
             {
-                title: 'Most Popular Shows',
-                path: '/',
+                subTitle: 'Most Popular Shows',
+                subPath: '/most-popular-shows',
             }
         ]
     },
     {
         title: 'Celebs',
-        path: '/celebs',
-        icon: BsPersonFill,
-        iconCLosed: RiArrowDownSFill,
-        iconOpened: RiArrowUpSFill,
+        path: '#',
+        icon: <BsIcons.BsPersonFill />,
+        iconClosed: <RiIcons.RiArrowDownSFill />,
+        iconOpened: <RiIcons.RiArrowUpSFill />,
         subNav: [
             {
-                title: 'Born Today',
-                path: '/',
+                subTitle: 'Born Today',
+                subPath: '/born-today',
             },
             {
-                title: 'Most Popular Celebs',
-                path: '/',
+                subTitle: 'Most Popular Celebs',
+                subPath: '/most-popular-celebs',
             }
         ]
     }

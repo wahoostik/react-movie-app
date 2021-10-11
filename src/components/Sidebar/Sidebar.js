@@ -1,8 +1,13 @@
-// == Import
-import { Nav, NavIcon, SidebarNav, SidebarWrap } from './SidebarStyles';
-import { FaBars } from 'react-icons/fa';
-import { AiOutlineClose } from 'react-icons/ai';
+import { Nav, NavIcon, SidebarNav, SidebarWrap, ButtonLink } from './SidebarStyles';
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
 import { useState } from 'react';
+import { SidebarData } from './SidebarData';
+import SubMenu from './SubMenu';
+import { IconContext } from 'react-icons/lib';
+import { useMediaQuery } from 'react-responsive';
+
+
 
 // == Composant
 const Sidebar = () =>{
@@ -10,21 +15,35 @@ const Sidebar = () =>{
     const [sidebar, setSidebar] = useState(false);
 
     const showSidebar = () => setSidebar(!sidebar);
+
+    const isBigScreen = useMediaQuery({ query: '(min-width: 600px)' });
+    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 400px)' });
     
     return (
         <div>
-            <Nav>
-                <NavIcon to="#">
-                    <FaBars onClick={showSidebar} />
-                </NavIcon>
-            </Nav>
-            <SidebarNav sidebar={sidebar}>
-                <SidebarWrap>
+            <IconContext.Provider value={{ color: '#fff' }}>
+                <Nav>
                     <NavIcon to="#">
-                        <AiOutlineClose onClick={showSidebar}/>
+                        <ButtonLink
+                            variant="contained"
+                            onClick={showSidebar} >
+                            <FaIcons.FaBars onClick={showSidebar} />
+                            {isBigScreen && <h2>Menu</h2>}
+                            {isTabletOrMobile && <h2></h2>}
+                        </ButtonLink>
                     </NavIcon>
-                </SidebarWrap>
-            </SidebarNav>
+                </Nav>
+                <SidebarNav sidebar={sidebar}>
+                    <SidebarWrap>
+                        <NavIcon to="#">
+                            <AiIcons.AiOutlineCloseCircle onClick={showSidebar}/>
+                        </NavIcon>
+                        {SidebarData.map((item, index) => {
+                            return <SubMenu item={item} key={index} />;
+                        })}
+                    </SidebarWrap>
+                </SidebarNav>
+            </IconContext.Provider>
         </div>
     );};
 

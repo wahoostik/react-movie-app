@@ -7,6 +7,7 @@ import TVShows from '../../Pages/TVShows/TVShows';
 import PageNotFound from '../../Pages/PageNotFound/PageNotFound';
 import MovieDetail from '../../Pages/MovieDetail/MovieDetail';
 import TVShowDetail from '../../Pages/TVShowDetail/TVShowDetail';
+import Celebs from '../../Pages/Celebs/Celebs';
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                         <Route path="/movie/:imdbID" component={MovieDetail} />
                         <Route path="/tvshow/:imdbID" component={TVShowDetail} />
                         <Route path="/tvshows" component={TVShows} />
+                        <Route path="/celebs" component={Celebs} />
                         <Route component={PageNotFound} path />
                     </Switch>
                 </div>

@@ -17,23 +17,6 @@ const Header = () => (
                 size='small'>
                 AMDb</Button>
         </NavLink>
-        <nav className='menu'>
-            <NavLink
-                to='/'
-                className='menu-link'>
-                Home
-            </NavLink>
-            <NavLink
-                to='/movies'
-                className='menu-link'>
-                Movies
-            </NavLink>
-            <NavLink
-                to='/tvshows'
-                className='menu-link'>
-                TV Shows
-            </NavLink>
-        </nav>
         <form className='search'>
             <input type="text" placeholder="Search" />
             <button type='submit' className='search-icon'><SearchIcon/></button>
