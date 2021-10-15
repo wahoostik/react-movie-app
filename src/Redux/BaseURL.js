@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export default axios.create({
-    baseURL: 'https://imdb8.p.rapidapi.com/title/',
+    baseURL: 'https://api.themoviedb.org/3/',
 });

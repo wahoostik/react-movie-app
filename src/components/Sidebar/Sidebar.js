@@ -16,6 +16,7 @@ const Sidebar = () =>{
 
     const showSidebar = () => setSidebar(!sidebar);
 
+    // React Responsive
     const isBigScreen = useMediaQuery({ query: '(min-width: 600px)' });
     const isTabletOrMobile = useMediaQuery({ query: '(max-width: 400px)' });
     

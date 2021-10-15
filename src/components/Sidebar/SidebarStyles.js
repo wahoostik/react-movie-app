@@ -16,6 +16,7 @@ export const Nav = styled.div`
     margin-right: 20px;
     {
         @media screen and (max-width: 1510px) {
+        margin-right: 20px;
         position: sticky;
         }
     }
@@ -60,8 +61,19 @@ export const SidebarNav = styled.nav`
     z-index: 10;
     {
         @media screen and (max-width: 1620px) {
-        width: 250px;
-        top: 70px;
+        width: 240px;
+        position: absolute;
+        }
+    }
+    {
+        @media screen and (max-width: 1520px) {
+        width: 235px;
+        position: absolute;
+        }
+    }
+    {
+        @media screen and (max-width: 600px) {
+        width: 100%;
         }
     }
 `;
@@ -107,5 +119,20 @@ export const DropdownLink = styled(Link)`
     &:hover {
         background: #1565C0;
         cursor: pointer;
+    }
+    {
+        @media screen and (max-width: 1620px) {
+        padding-left: 1.5rem;
+        }
+    }
+    {
+        @media screen and (max-width: 1520px) {
+        padding-left: 1rem;
+        }
+    }
+    {
+        @media screen and (max-width: 600px) {
+        padding-left: 3rem;
+        }
     }
 `;
