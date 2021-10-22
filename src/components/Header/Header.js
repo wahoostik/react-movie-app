@@ -24,7 +24,5 @@ const Header = () => (
     </div>
 );
 
-// <div className='logo'>TMDb</div>
-
 // == Export
 export default Header;

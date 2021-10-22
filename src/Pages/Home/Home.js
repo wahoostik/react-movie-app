@@ -2,26 +2,52 @@
 
 // == Import
 import { useEffect } from 'react';
-import baseUrl from '../../Redux/baseUrl';
+import { useDispatch, useSelector } from 'react-redux';
+import SingleContent from '../../components/SingleContent/SingleContent';
+import { trendingMovies, moviesSelector } from '../../Redux/reducers/moviesSlice';
 
 // == Composant
 const Home = () => {
 
+    const dispatch = useDispatch();
+
+    const { movies, loading, hasErrors } = useSelector(moviesSelector);
+    console.log('useSelector toolkit :', movies);
+    
     useEffect(() => {
-        const fetchMovies = async () => {
-            try {
-                const response = await baseUrl.get(`trending/all/day?api_key=${process.env.REACT_APP_API_KEY}`);
-                console.log('The response of API:', response);                
-            } catch (error) {
-                console.trace(error);
-            }
-        };
-        fetchMovies();
-    });
+        dispatch(trendingMovies());
+    }, [dispatch]);
+
+    const renderMovies = () => {
+        if (loading) return <p>Loading Trending...</p>;
+        if (hasErrors) return <p>Cannot display Trending...</p>;
+
+        return movies.map(movie =>
+            <div key={movie.id} className='tile'>
+                <SingleContent
+                    key={movie.id}
+                    id={movie.id}
+                    title={movie.title || movie.name}
+                    poster={movie.poster_path}
+                    date={movie.first_air_date || movie.release_date}
+                    media_type={movie.media_type}
+                    vote_average={movie.vote_average}
+                />
+            </div>
+        );
+    };
+
     
     return (
         <div className='home'>
-            <h1>Composant : Home</h1>
+            <div className="movie-wrapper">
+                <div className="movie-list">
+                    <h2>Trending Movies & TV Shows</h2>
+                    <div className="movie-container">
+                        {renderMovies()}
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
