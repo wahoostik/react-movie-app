@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SingleContent from '../../components/SingleContent/SingleContent';
 import { trendingMovies, moviesSelector } from '../../Redux/reducers/moviesSlice';
+import { Container, HomeTitle } from './HomeStyles';
 
 // == Composant
 const Home = () => {
@@ -40,14 +41,10 @@ const Home = () => {
     
     return (
         <div className='home'>
-            <div className="movie-wrapper">
-                <div className="movie-list">
-                    <h2>Trending Movies & TV Shows</h2>
-                    <div className="movie-container">
-                        {renderMovies()}
-                    </div>
-                </div>
-            </div>
+            <HomeTitle>Trending Movies & TV Shows</HomeTitle>
+            <Container>
+                {renderMovies()}
+            </Container>
         </div>
     );
 };
