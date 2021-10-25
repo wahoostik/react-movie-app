@@ -6,7 +6,7 @@ import { styled as styledMaterial } from '@mui/material/styles';
 // == Sidebar
 
 export const Nav = styled.div`
-    position: fixed;
+    position: absolute;
     left: 5%;
     top: 0;
     background: #0e1a33;

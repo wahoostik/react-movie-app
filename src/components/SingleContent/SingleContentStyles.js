@@ -5,8 +5,6 @@ export const Media = styled.div`
     display: flex;
     flex-direction: column;
     width: 240px;
-    min-height: 400px;
-    max-height: 420px;
     padding: 5px;
     margin: 5px 0;
     background-color: #0e1a33;
@@ -18,9 +16,6 @@ export const Media = styled.div`
     &:hover {
         background-color: #1565C0;
         color: rgb(226, 226, 226);
-    }
-    @media (max-width: 550px) {
-        width: 46%;
     }
 }
 `;

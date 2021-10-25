@@ -5,7 +5,7 @@ import baseUrl from '../../Redux/baseUrl';
 const initialState = {
     loading: false,
     hasErrors: false,
-    movies:[]
+    movies: []
 };
 
 const moviesSlice = createSlice({
@@ -15,6 +15,7 @@ const moviesSlice = createSlice({
         getTrendingMovies: state => {state.loading = true;},
         getTrendingMoviesSuccess: (state, { payload }) => {
             state.movies = payload;
+            state.page = 1;
             state.loading = false;
             state.hasErrors = false;
         },
@@ -28,18 +29,16 @@ const moviesSlice = createSlice({
 export const moviesSelector = state => state.movies;
 export const { getTrendingMovies, getTrendingMoviesSuccess, getTrendingMoviesFailure } = moviesSlice.actions;
 
-export function trendingMovies() {
+export function trendingMovies(page) {
     return async dispatch => {
         dispatch(getTrendingMovies());
-
         try {
-            const response = await baseUrl.get(`trending/all/day?api_key=${process.env.REACT_APP_API_KEY}&page=1`);
-            dispatch(getTrendingMoviesSuccess(response.data.results));
+            const response = await baseUrl.get(`trending/all/day?api_key=${process.env.REACT_APP_API_KEY}&page=` + page);
+            dispatch(getTrendingMoviesSuccess(response.data.results, page));
         } catch (error) {
             dispatch(getTrendingMoviesFailure());
         }
     };
 }
-
 
 export default moviesSlice.reducer;

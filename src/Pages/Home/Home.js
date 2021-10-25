@@ -1,8 +1,7 @@
-/* eslint-disable no-undef */
-
 // == Import
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import CustomPagination from '../../components/CustomPagination/CustomPagination';
 import SingleContent from '../../components/SingleContent/SingleContent';
 import { trendingMovies, moviesSelector } from '../../Redux/reducers/moviesSlice';
 import { Container, HomeTitle } from './HomeStyles';
@@ -10,14 +9,16 @@ import { Container, HomeTitle } from './HomeStyles';
 // == Composant
 const Home = () => {
 
+    const [page, setPage] = useState(1);
+
     const dispatch = useDispatch();
 
     const { movies, loading, hasErrors } = useSelector(moviesSelector);
     console.log('useSelector toolkit :', movies);
     
     useEffect(() => {
-        dispatch(trendingMovies());
-    }, [dispatch]);
+        dispatch(trendingMovies(page));
+    }, [dispatch, page]);
 
     const renderMovies = () => {
         if (loading) return <p>Loading Trending...</p>;
@@ -45,6 +46,7 @@ const Home = () => {
             <Container>
                 {renderMovies()}
             </Container>
+            <CustomPagination setPage={setPage}/>
         </div>
     );
 };
