@@ -1,7 +1,13 @@
 // == Import
-import { Pagination } from '@mui/material';
+import { createTheme, Pagination, ThemeProvider } from '@mui/material';
 import PropTypes from 'prop-types';
 import { PaginationStyle } from './CustomPaginationStyles';
+
+const theme = createTheme({
+    palette: {
+        mode: 'dark',
+    },
+});
 
 // == Composant
 const CustomPagination = ({ setPage, numOfPages }) => {
@@ -13,12 +19,18 @@ const CustomPagination = ({ setPage, numOfPages }) => {
     };
     
     return (
-        <PaginationStyle>
-            <Pagination
-                count={numOfPages}
-                color="primary"
-                onChange={(event) => handlePageChange(event.target.textContent)}/>
-        </PaginationStyle>
+        <ThemeProvider theme={theme}>
+            <PaginationStyle>
+                <Pagination
+                    count={numOfPages}
+                    color="primary"
+                    size="large"
+                    onChange={(event) => handlePageChange(event.target.textContent)}
+                    hideNextButton
+                    hidePrevButton
+                />
+            </PaginationStyle>
+        </ThemeProvider>
     );
 };
     

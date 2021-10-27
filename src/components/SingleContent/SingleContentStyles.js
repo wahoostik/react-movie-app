@@ -1,4 +1,21 @@
 import styled from 'styled-components';
+import { styled as styledMaterial } from '@mui/material/styles';
+import { Badge } from '@mui/material';
+
+export const BadgeAverage = styledMaterial(Badge)`
+    .MuiBadge-badge {
+    z-index: auto;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+`;
 
 export const Media = styled.div`
     cursor: pointer;
@@ -10,12 +27,14 @@ export const Media = styled.div`
     background-color: #0e1a33;
     color: rgb(226, 226, 226);
     border-radius: 10px;
-    position: relative;
+    
     font-family: "Montserrat", sans-serif;
-    margin: 5px;
     &:hover {
         background-color: #1565C0;
         color: rgb(226, 226, 226);
+    }
+    @media (max-width: 550px) {
+    width: 160px;
     }
 }
 `;
@@ -30,6 +49,9 @@ export const Title = styled.h1`
     font-size: 17px;
     padding: 8px 0;
     font-weight: 600;
+    @media (max-width: 550px) {
+    font-size: 15px;
+    }
 `;
 
 export const Subtitle = styled.span`
@@ -40,4 +62,7 @@ export const Subtitle = styled.span`
     padding-bottom: 3px;
     font-size: 15px;
     font-weight: 300;
+    @media (max-width: 550px) {
+    font-size: 12px;
+    }
 `;

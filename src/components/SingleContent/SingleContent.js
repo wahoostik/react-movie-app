@@ -1,15 +1,15 @@
 // == Import
 import PropTypes from 'prop-types';
 import { img_300, unavailable } from '../../config/config';
-import { Badge } from '@mui/material';
-import { Media, Poster, Title, Subtitle } from './SingleContentStyles';
+// import { Badge } from '@mui/material';
+import { Media, Poster, Title, Subtitle, BadgeAverage } from './SingleContentStyles';
 
 // == Composant
 const SingleContent = ({id, title, date, poster, media_type, vote_average}) => (
     <Media id={id}>
-        <Badge
+        <BadgeAverage
             badgeContent={vote_average}
-            color={vote_average > 6 ? 'primary' : 'secondary'}
+            color={vote_average > 8 ? 'success' : 'secondary' | vote_average < 6 ? 'warning' : 'secondary'}
         />
         <Poster
             src={poster ? `${img_300}${poster}` : unavailable}

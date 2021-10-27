@@ -25,7 +25,7 @@ const Home = () => {
         if (hasErrors) return <p>Cannot display Trending...</p>;
 
         return movies.map(movie =>
-            <div key={movie.id} className='tile'>
+            <div key={movie.id} className='title'>
                 <SingleContent
                     key={movie.id}
                     id={movie.id}

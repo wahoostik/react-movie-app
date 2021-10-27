@@ -8,13 +8,14 @@ import PageNotFound from '../../Pages/PageNotFound/PageNotFound';
 import MovieDetail from '../../Pages/MovieDetail/MovieDetail';
 import TVShowDetail from '../../Pages/TVShowDetail/TVShowDetail';
 import Celebs from '../../Pages/Celebs/Celebs';
+import Container from '@mui/material/Container';
 
 function App() {
     return (
-        <div className="app">
-            <Router>
+        <Router>
+            <div className="app">
                 <Header />
-                <div className="container">
+                <Container>
                     <Switch>
                         <Route path="/" exact component={Home} />
                         <Route path="/movies" component={Movies} />
@@ -24,9 +25,9 @@ function App() {
                         <Route path="/celebs" component={Celebs} />
                         <Route component={PageNotFound} path />
                     </Switch>
-                </div>
-            </Router>
-        </div>
+                </Container>
+            </div>
+        </Router>
     );
 }
 

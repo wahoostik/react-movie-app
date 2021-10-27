@@ -19,6 +19,10 @@ export const Nav = styled.div`
         margin-right: 20px;
         position: sticky;
         }
+        @media screen and (max-width: 320px) {
+        margin-right: 10px;
+        position: sticky;
+        }
     }
 `;
 
