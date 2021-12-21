@@ -21,10 +21,6 @@ export const SidebarData = [
             {
                 subTitle: 'Coming Soon',
                 subPath: '/coming-soon',
-            },
-            {
-                subTitle: 'Best Picture Winners',
-                subPath: '/best-pictur-ewinners',
             }
         ]
     },
@@ -52,10 +48,6 @@ export const SidebarData = [
         iconClosed: <RiIcons.RiArrowDownSFill />,
         iconOpened: <RiIcons.RiArrowUpSFill />,
         subNav: [
-            {
-                subTitle: 'Born Today',
-                subPath: '/born-today',
-            },
             {
                 subTitle: 'Most Popular Celebs',
                 subPath: '/most-popular-celebs',

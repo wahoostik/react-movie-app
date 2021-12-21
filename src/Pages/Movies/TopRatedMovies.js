@@ -1,26 +1,24 @@
 // == Import
+import { HomeTitle, Movies } from './MoviesStyles';
 import { useEffect, useState } from 'react';
+import { topRatedMovies, moviesSelector } from '../../Redux/reducers/moviesSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import CustomPagination from '../../components/CustomPagination/CustomPagination';
 import SingleContent from '../../components/SingleContent/SingleContent';
-import { trendingMovies, moviesSelector } from '../../Redux/reducers/moviesSlice';
-import { Trending, HomeTitle } from './HomeStyles';
+import CustomPagination from '../../components/CustomPagination/CustomPagination';
 
 // == Composant
-const Home = () => {
-
-    const [page, setPage] = useState(1);
+const TopRatedMovies = () => {
 
     const dispatch = useDispatch();
-
     const { movies, loading, hasErrors } = useSelector(moviesSelector);
-    // console.log('useSelector toolkit :', movies);
-    
+    //console.log('useSelector toolkit :', movies);
+    const [page, setPage] = useState(1);
+
     useEffect(() => {
-        dispatch(trendingMovies(page));
+        dispatch(topRatedMovies(page));
     }, [dispatch, page]);
 
-    const renderMovies = () => {
+    const renderTopRatedMovies = () => {
         if (loading) return <p>Loading Trending...</p>;
         if (hasErrors) return <p>Cannot display Trending...</p>;
 
@@ -38,18 +36,17 @@ const Home = () => {
             </div>
         );
     };
-
     
     return (
+    
         <div>
-            <HomeTitle>Trending Movies & TV Shows</HomeTitle>
-            <Trending>
-                {renderMovies()}
-            </Trending>
+            <HomeTitle>Top Rated Movies</HomeTitle>
+            <Movies>
+                {renderTopRatedMovies()}
+            </Movies>
             <CustomPagination setPage={setPage}/>
         </div>
-    );
-};
+    );};
 
 // == Export
-export default Home;
+export default TopRatedMovies;

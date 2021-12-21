@@ -12,14 +12,20 @@ const moviesSlice = createSlice({
     name: 'movies',
     initialState,
     reducers: {
-        getTrendingMovies: state => {state.loading = true;},
+        getMovies: state => {state.loading = true;},
         getTrendingMoviesSuccess: (state, { payload }) => {
             state.movies = payload;
             state.page = 1;
             state.loading = false;
             state.hasErrors = false;
         },
-        getTrendingMoviesFailure: state => {
+        getTopRatedMoviesMoviesSuccess: (state, { payload }) => {
+            state.movies = payload;
+            state.page = 1;
+            state.loading = false;
+            state.hasErrors = false;
+        },
+        getMoviesFailure: state => {
             state.loading = false;
             state.hasErrors = true;
         },
@@ -27,18 +33,31 @@ const moviesSlice = createSlice({
 });
 
 export const moviesSelector = state => state.movies;
-export const { getTrendingMovies, getTrendingMoviesSuccess, getTrendingMoviesFailure } = moviesSlice.actions;
+export const { getMovies, getTrendingMoviesSuccess, getTopRatedMoviesMoviesSuccess, getMoviesFailure } = moviesSlice.actions;
 
 export function trendingMovies(page) {
     return async dispatch => {
-        dispatch(getTrendingMovies());
+        dispatch(getMovies());
         try {
             const response = await baseUrl.get(`trending/all/day?api_key=${process.env.REACT_APP_API_KEY}&page=` + page);
             dispatch(getTrendingMoviesSuccess(response.data.results, page));
         } catch (error) {
-            dispatch(getTrendingMoviesFailure());
+            dispatch(getMoviesFailure());
         }
     };
 }
+
+export function topRatedMovies(page) {
+    return async dispatch => {
+        dispatch(getMovies());
+        try {
+            const response = await baseUrl.get(`movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=` + page);
+            dispatch(getTopRatedMoviesMoviesSuccess(response.data.results, page));
+        } catch (error) {
+            dispatch(getMoviesFailure());
+        }
+    };
+}
+
 
 export default moviesSlice.reducer;

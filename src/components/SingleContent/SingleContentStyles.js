@@ -21,20 +21,25 @@ export const Media = styled.div`
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    width: 240px;
+    space-between: auto;
+    width: 210px;
+    min-height:380px;
+    max-height:500px;
     padding: 5px;
-    margin: 5px 0;
+    margin: 0 5px 10px 5px;
     background-color: #0e1a33;
     color: rgb(226, 226, 226);
     border-radius: 10px;
-    
     font-family: "Montserrat", sans-serif;
     &:hover {
         background-color: #1565C0;
         color: rgb(226, 226, 226);
     }
     @media (max-width: 550px) {
+    margin: 5px;
     width: 160px;
+    min-height:300px;
+    max-height:360px;
     }
 }
 `;
