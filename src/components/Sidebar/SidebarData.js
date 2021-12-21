@@ -32,12 +32,12 @@ export const SidebarData = [
         iconOpened: <RiIcons.RiArrowUpSFill />,
         subNav: [
             {
-                subTitle: 'Top Rated Shows',
-                subPath: '/top-rated-shows',
+                subTitle: 'Top Rated TV Shows',
+                subPath: '/top-rated-tvshows',
             },
             {
-                subTitle: 'Most Popular Shows',
-                subPath: '/most-popular-shows',
+                subTitle: 'Most Popular TV Shows',
+                subPath: '/most-popular-tvshows',
             }
         ]
     },

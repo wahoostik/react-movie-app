@@ -22,7 +22,7 @@ const Home = () => {
 
     const renderMovies = () => {
         if (loading) return <p>Loading Trending...</p>;
-        if (hasErrors) return <p>Cannot display Trending...</p>;
+        if (hasErrors) return <p>Cannot Display Trending...</p>;
 
         return movies.map(movie =>
             <div key={movie.id}>

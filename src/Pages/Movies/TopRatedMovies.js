@@ -19,8 +19,8 @@ const TopRatedMovies = () => {
     }, [dispatch, page]);
 
     const renderTopRatedMovies = () => {
-        if (loading) return <p>Loading Trending...</p>;
-        if (hasErrors) return <p>Cannot display Trending...</p>;
+        if (loading) return <p>Loading Top Rated Movies...</p>;
+        if (hasErrors) return <p>Cannot Display Top Rated Movies...</p>;
 
         return movies.map(movie =>
             <div key={movie.id}>
