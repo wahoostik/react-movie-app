@@ -1,9 +1,10 @@
 // == Import
+import { HomeTitle } from '../../Styles/globalStyles';
 
 // == Composant
 const PageNotFound = () => (
-    <div className='page-not-found'>
-        <h1>Page Not Found</h1>
+    <div>
+        <HomeTitle>Page Not Found</HomeTitle>
     </div>
 );
 

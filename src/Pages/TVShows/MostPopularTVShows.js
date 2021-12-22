@@ -1,20 +1,22 @@
 // == Import
-import { HomeTitle, TVShows } from './TVShowsStyles';
-import { useEffect } from 'react';
-import { mostPopularTVShows, moviesSelector } from '../../Redux/reducers/moviesSlice';
+import { HomeTitle, Container } from '../../Styles/globalStyles';
+import { useEffect, useState } from 'react';
+import { mostPopularTVShows, tvshowsSelector } from '../../Redux/reducers/tvshowsSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import SingleContent from '../../components/SingleContent/SingleContent';
+import CustomPagination from '../../components/CustomPagination/CustomPagination';
 
 // == Composant
 const MostPopularTVShows = () => {
 
     const dispatch = useDispatch();
-    const { tvshows, loading, hasErrors } = useSelector(moviesSelector);
+    const { tvshows, loading, hasErrors } = useSelector(tvshowsSelector);
     //console.log('useSelector toolkit :', tvshows);
+    const [page, setPage] = useState(1);
 
     useEffect(() => {
-        dispatch(mostPopularTVShows());
-    }, [dispatch]);
+        dispatch(mostPopularTVShows(page));
+    }, [dispatch, page]);
 
     const renderMostPopularTVShows= () => {
         if (loading) return <p>Loading Most Popular TV Shows...</p>;
@@ -38,9 +40,10 @@ const MostPopularTVShows = () => {
     return (
         <div>
             <HomeTitle>Most Popular TV Shows</HomeTitle>
-            <TVShows>
+            <Container>
                 {renderMostPopularTVShows()}
-            </TVShows>
+            </Container>
+            <CustomPagination setPage={setPage}/>
         </div>
     );};
 

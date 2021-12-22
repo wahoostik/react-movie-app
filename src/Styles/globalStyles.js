@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Trending = styled.div`
+export const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -15,7 +15,7 @@ export const HomeTitle = styled.div`
     font-family: "Montserrat", sans-serif;
     font-size: 2.25vw;
     padding: 25px;
-    margin-top: 20px;
+    margin: 20px 0 10px 0;
     border-radius: 50px;
     color: white;
     @media (max-width: 800px) {

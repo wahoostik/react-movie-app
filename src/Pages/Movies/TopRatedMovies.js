@@ -1,5 +1,5 @@
 // == Import
-import { HomeTitle, Movies } from './MoviesStyles';
+import { HomeTitle, Container } from '../../Styles/globalStyles';
 import { useEffect, useState } from 'react';
 import { topRatedMovies, moviesSelector } from '../../Redux/reducers/moviesSlice';
 import { useDispatch, useSelector } from 'react-redux';
@@ -41,9 +41,9 @@ const TopRatedMovies = () => {
     
         <div>
             <HomeTitle>Top Rated Movies</HomeTitle>
-            <Movies>
+            <Container>
                 {renderTopRatedMovies()}
-            </Movies>
+            </Container>
             <CustomPagination setPage={setPage}/>
         </div>
     );};

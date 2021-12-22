@@ -5,8 +5,7 @@ import baseUrl from '../../Redux/baseUrl';
 const initialState = {
     loading: false,
     hasErrors: false,
-    movies: [],
-    tvshows: []
+    movies: []
 };
 
 const moviesSlice = createSlice({
@@ -20,12 +19,6 @@ const moviesSlice = createSlice({
             state.loading = false;
             state.hasErrors = false;
         },
-        getTVShowsSuccess: (state, { payload }) => {
-            state.tvshows = payload;
-            state.page = 1;
-            state.loading = false;
-            state.hasErrors = false;
-        },
         getMoviesFailure: state => {
             state.loading = false;
             state.hasErrors = true;
@@ -34,7 +27,7 @@ const moviesSlice = createSlice({
 });
 
 export const moviesSelector = state => state.movies;
-export const { getMovies, getMoviesSuccess, getTVShowsSuccess, getMoviesFailure } = moviesSlice.actions;
+export const { getMovies, getMoviesSuccess, getMoviesFailure } = moviesSlice.actions;
 
 export function trendingMovies(page) {
     return async dispatch => {
@@ -59,18 +52,5 @@ export function topRatedMovies(page) {
         }
     };
 }
-
-export function mostPopularTVShows() {
-    return async dispatch => {
-        dispatch(getMovies());
-        try {
-            const response = await baseUrl.get(`tv/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`);
-            dispatch(getTVShowsSuccess(response.data.results));
-        } catch (error) {
-            dispatch(getMoviesFailure());
-        }
-    };
-}
-
 
 export default moviesSlice.reducer;
