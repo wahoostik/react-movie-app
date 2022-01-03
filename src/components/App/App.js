@@ -7,7 +7,7 @@ import MostPopularTVShows from '../../Pages/TVShows/MostPopularTVShows';
 import PageNotFound from '../../Pages/PageNotFound/PageNotFound';
 import MovieDetail from '../../Pages/MovieDetail/MovieDetail';
 import TVShowDetail from '../../Pages/TVShowDetail/TVShowDetail';
-import Celebs from '../../Pages/Celebs/Celebs';
+import MostPopularCelebs from '../../Pages/Celebs/MostPopularCelebs';
 import Container from '@mui/material/Container';
 import MostPopularMovies from '../../Pages/Movies/MostPopularMovies';
 import ComingSoonMovies from '../../Pages/Movies/ComingSoonMovies';
@@ -28,7 +28,7 @@ function App() {
                         <Route path="/top-rated-tvshows" component={TopRatedTVShows} />
                         <Route path="/movie/:id" component={MovieDetail} />
                         <Route path="/tvshow/:id" component={TVShowDetail} />
-                        <Route path="/most-popular-celebs" component={Celebs} />
+                        <Route path="/most-popular-celebs" component={MostPopularCelebs} />
                         <Route component={PageNotFound} path />
                     </Switch>
                 </Container>
