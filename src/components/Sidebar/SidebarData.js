@@ -20,7 +20,7 @@ export const SidebarData = [
             },
             {
                 subTitle: 'Coming Soon',
-                subPath: '/coming-soon',
+                subPath: '/coming-soon-movies',
             }
         ]
     },

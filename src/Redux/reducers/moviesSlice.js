@@ -65,4 +65,16 @@ export function mostPopularMovies(page) {
     };
 }
 
+export function comingSoonMovies(page) {
+    return async dispatch => {
+        dispatch(getMovies());
+        try {
+            const response = await baseUrl.get(`movie/upcoming?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=` + page);
+            dispatch(getMoviesSuccess(response.data.results, page));
+        } catch (error) {
+            dispatch(getMoviesFailure());
+        }
+    };
+}
+
 export default moviesSlice.reducer;

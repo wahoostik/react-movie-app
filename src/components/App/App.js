@@ -10,6 +10,7 @@ import TVShowDetail from '../../Pages/TVShowDetail/TVShowDetail';
 import Celebs from '../../Pages/Celebs/Celebs';
 import Container from '@mui/material/Container';
 import MostPopularMovies from '../../Pages/Movies/MostPopularMovies';
+import ComingSoonMovies from '../../Pages/Movies/ComingSoonMovies';
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                         <Route path="/top-rated-movies" component={TopRatedMovies} />
                         <Route path="/most-popular-movies" component={MostPopularMovies} />
                         <Route path="/most-popular-tvshows" component={MostPopularTVShows} />
+                        <Route path="/coming-soon-movies" component={ComingSoonMovies} />
                         <Route path="/movie/:id" component={MovieDetail} />
                         <Route path="/tvshow/:id" component={TVShowDetail} />
                         <Route path="/celebs" component={Celebs} />
