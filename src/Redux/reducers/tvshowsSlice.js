@@ -41,5 +41,17 @@ export function mostPopularTVShows(page) {
     };
 }
 
+export function topRatedTVShows(page) {
+    return async dispatch => {
+        dispatch(getTVShows());
+        try {
+            const response = await baseUrl.get(`tv/top_rated?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=` + page);
+            dispatch(getTVShowsSuccess(response.data.results, page));
+        } catch (error) {
+            dispatch(getTVShowsFailure());
+        }
+    };
+}
+
 
 export default tvshowsSlice.reducer;
