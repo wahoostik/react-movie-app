@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { mostPopularCelebs, celebsSelector } from '../../Redux/reducers/celebsSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import CustomPagination from '../../components/CustomPagination/CustomPagination';
-import CelebsContent from './CelebsContent';
+import CelebsContent from '../../components/Content/CelebsContent';
 
 // == Composant
 const MostPopularCelebs = () => {

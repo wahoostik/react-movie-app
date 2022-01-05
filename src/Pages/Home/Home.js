@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CustomPagination from '../../components/CustomPagination/CustomPagination';
-import SingleContent from '../../components/SingleContent/SingleContent';
+import SingleContent from '../../components/Content/SingleContent';
 import { trendingMovies, moviesSelector } from '../../Redux/reducers/moviesSlice';
 import { HomeTitle, Container } from '../../Styles/globalStyles';
 

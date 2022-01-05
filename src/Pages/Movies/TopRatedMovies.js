@@ -3,7 +3,7 @@ import { HomeTitle, Container } from '../../Styles/globalStyles';
 import { useEffect, useState } from 'react';
 import { topRatedMovies, moviesSelector } from '../../Redux/reducers/moviesSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import SingleContent from '../../components/SingleContent/SingleContent';
+import SingleContent from '../../components/Content/SingleContent';
 import CustomPagination from '../../components/CustomPagination/CustomPagination';
 
 // == Composant
@@ -30,7 +30,7 @@ const TopRatedMovies = () => {
                     title={movie.title || movie.name}
                     poster={movie.poster_path}
                     date={movie.first_air_date || movie.release_date}
-                    media_type={movie.media_type}
+                    media_type="movie"
                     vote_average={movie.vote_average}
                 />
             </div>

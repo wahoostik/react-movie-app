@@ -1,7 +1,6 @@
 // == Import
 import PropTypes from 'prop-types';
 import { img_300, unavailable } from '../../config/config';
-// import { Badge } from '@mui/material';
 import { Media, Poster, Title, Subtitle, BadgeAverage } from './SingleContentStyles';
 
 // == Composant
@@ -17,7 +16,7 @@ const SingleContent = ({id, title, date, poster, media_type, vote_average}) => (
         </Poster>
         <Title>{title}</Title>
         <Subtitle>
-            {media_type === 'tv' ? 'TV Series' : 'Movie'}
+            {media_type === 'tv' ? 'TV Shows' : 'Movie'}
             <Subtitle>{date}</Subtitle>
         </Subtitle>
     </Media>
