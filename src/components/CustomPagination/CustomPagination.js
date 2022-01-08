@@ -35,7 +35,7 @@ const CustomPagination = ({ setPage, numOfPages }) => {
 };
     
 CustomPagination.propTypes = {
-    setPage: PropTypes.number.isRequired,
+    setPage: PropTypes.func.isRequired,
     numOfPages: PropTypes.number.isRequired
 };
 

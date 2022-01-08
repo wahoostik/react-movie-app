@@ -4,6 +4,11 @@ import * as BsIcons from 'react-icons/bs';
 
 export const SidebarData = [
     {
+        title: 'Search',
+        path: '/search',
+        icon: <BsIcons.BsSearch />,
+    },
+    {
         title: 'Movies',
         path: '#',
         icon: <MdIcons.MdLocalMovies />,

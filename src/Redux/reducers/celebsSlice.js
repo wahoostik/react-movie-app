@@ -33,7 +33,7 @@ export function mostPopularCelebs(page) {
     return async dispatch => {
         dispatch(getCelebs());
         try {
-            const response = await baseUrl.get(`person/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=` + page);
+            const response = await baseUrl.get(`person/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`);
             dispatch(getCelebsSuccess(response.data.results, page));
         } catch (error) {
             dispatch(getCelebsFailure());

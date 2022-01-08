@@ -1,7 +1,6 @@
 // == Import
 import { NavLink } from 'react-router-dom';
 import { Button } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
 import './Header.scss';
 import Sidebar from '../Sidebar/Sidebar';
 
@@ -15,12 +14,8 @@ const Header = () => (
                 variant="contained"
                 color='primary'
                 size='small'>
-                AMDb</Button>
+                🎬 AMDb 🎥</Button>
         </NavLink>
-        <form className='search'>
-            <input type="text" placeholder="Search" />
-            <button type='submit' className='search-icon'><SearchIcon/></button>
-        </form>
     </div>
 );
 

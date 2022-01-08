@@ -33,7 +33,7 @@ export function mostPopularTVShows(page) {
     return async dispatch => {
         dispatch(getTVShows());
         try {
-            const response = await baseUrl.get(`tv/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=` + page);
+            const response = await baseUrl.get(`tv/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`);
             dispatch(getTVShowsSuccess(response.data.results, page));
         } catch (error) {
             dispatch(getTVShowsFailure());
@@ -45,7 +45,7 @@ export function topRatedTVShows(page) {
     return async dispatch => {
         dispatch(getTVShows());
         try {
-            const response = await baseUrl.get(`tv/top_rated?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=` + page);
+            const response = await baseUrl.get(`tv/top_rated?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`);
             dispatch(getTVShowsSuccess(response.data.results, page));
         } catch (error) {
             dispatch(getTVShowsFailure());

@@ -15,13 +15,13 @@ export const Nav = styled.div`
     align-items: center;
     margin-right: 20px;
     {
-        @media screen and (max-width: 1510px) {
+        @media screen and (max-width: 900px) {
         margin-right: 20px;
-        position: sticky;
+        //position: sticky;
         }
         @media screen and (max-width: 320px) {
         margin-right: 10px;
-        position: sticky;
+        //position: sticky;
         }
     }
 `;
@@ -76,7 +76,7 @@ export const SidebarNav = styled.nav`
         }
     }
     {
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 650px) {
         width: 100%;
         }
     }

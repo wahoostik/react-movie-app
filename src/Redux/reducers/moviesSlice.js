@@ -33,7 +33,7 @@ export function trendingMovies(page) {
     return async dispatch => {
         dispatch(getMovies());
         try {
-            const response = await baseUrl.get(`trending/all/day?api_key=${process.env.REACT_APP_API_KEY}&page=` + page);
+            const response = await baseUrl.get(`trending/all/day?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`);
             dispatch(getMoviesSuccess(response.data.results, page));
         } catch (error) {
             dispatch(getMoviesFailure());
@@ -45,7 +45,7 @@ export function topRatedMovies(page) {
     return async dispatch => {
         dispatch(getMovies());
         try {
-            const response = await baseUrl.get(`movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=` + page);
+            const response = await baseUrl.get(`movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`);
             dispatch(getMoviesSuccess(response.data.results, page));
         } catch (error) {
             dispatch(getMoviesFailure());
@@ -57,7 +57,7 @@ export function mostPopularMovies(page) {
     return async dispatch => {
         dispatch(getMovies());
         try {
-            const response = await baseUrl.get(`movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=` + page);
+            const response = await baseUrl.get(`movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`);
             dispatch(getMoviesSuccess(response.data.results, page));
         } catch (error) {
             dispatch(getMoviesFailure());
@@ -69,8 +69,20 @@ export function comingSoonMovies(page) {
     return async dispatch => {
         dispatch(getMovies());
         try {
-            const response = await baseUrl.get(`movie/upcoming?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=` + page);
+            const response = await baseUrl.get(`movie/upcoming?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`);
             dispatch(getMoviesSuccess(response.data.results, page));
+        } catch (error) {
+            dispatch(getMoviesFailure());
+        }
+    };
+}
+
+export function fetchMultiSearch(query) {
+    return async dispatch => {
+        dispatch(getMovies());
+        try {
+            const response = await baseUrl.get(`search/multi?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&${query}=game&page=1&include_adult=false`);
+            dispatch(getMoviesSuccess(response.data.results, query));
         } catch (error) {
             dispatch(getMoviesFailure());
         }

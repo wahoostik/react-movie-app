@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import CustomPagination from '../../components/CustomPagination/CustomPagination';
 import SingleContent from '../../components/Content/SingleContent';
 import { trendingMovies, moviesSelector } from '../../Redux/reducers/moviesSlice';
-import { HomeTitle, Container } from '../../Styles/globalStyles';
+import { HomeTitle, Container, Welcome } from '../../Styles/globalStyles';
 
 // == Composant
 const Home = () => {
@@ -42,6 +42,7 @@ const Home = () => {
     
     return (
         <div>
+            <Welcome>Welcome To The <br/>🎬 Anthony Movie Database 🎥</Welcome>
             <HomeTitle>Trending Movies & TV Shows</HomeTitle>
             <Container>
                 {renderMovies()}

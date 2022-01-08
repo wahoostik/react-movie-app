@@ -12,6 +12,7 @@ import Container from '@mui/material/Container';
 import MostPopularMovies from '../../Pages/Movies/MostPopularMovies';
 import ComingSoonMovies from '../../Pages/Movies/ComingSoonMovies';
 import TopRatedTVShows from '../../Pages/TVShows/TopRatedTVShows';
+import Search from '../../Pages/Search/Search';
 
 function App() {
     return (
@@ -26,10 +27,11 @@ function App() {
                         <Route path="/coming-soon-movies" component={ComingSoonMovies} />
                         <Route path="/most-popular-tvshows" component={MostPopularTVShows} />
                         <Route path="/top-rated-tvshows" component={TopRatedTVShows} />
+                        <Route path="/search" component={Search} />
                         <Route path="/movie/:id" component={MovieDetail} />
                         <Route path="/tvshow/:id" component={TVShowDetail} />
                         <Route path="/most-popular-celebs" component={MostPopularCelebs} />
-                        <Route component={PageNotFound} path />
+                        <Route component={PageNotFound} />
                     </Switch>
                 </Container>
             </div>
